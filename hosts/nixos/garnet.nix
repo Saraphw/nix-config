@@ -8,6 +8,7 @@ let
 in
 nixpkgs.lib.nixosSystem {
   modules = [
+    ../../configuration.nix
     ../../modules/core/nix-core.nix
   ];
 }
