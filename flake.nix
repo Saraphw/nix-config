@@ -26,5 +26,8 @@
     darwinConfigurations = {
       inherit amethyst;
     };
+    nixosConfigurations = {
+      inherit garnet;
+    };
   };
 }
