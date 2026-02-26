@@ -15,6 +15,8 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ../../configuration.nix
     ../../modules/core/nix-core.nix
+    ../../modules/core/hosts.nix
+    
     ../../modules/nixos/nginx.nix
 
     home-manager.nixosModules.home-manager {

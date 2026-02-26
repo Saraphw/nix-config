@@ -13,7 +13,8 @@
       inherit specialArgs;
       modules = [ 
         configuration
-        ../../modules/darwin/hosts.nix
+        ../../modules/core/hosts.nix
+        
         ../../modules/darwin/nix-det.nix #using determinate nix to manage nix
         ../../modules/darwin/system.nix
         ../../modules/darwin/homebrew.nix
