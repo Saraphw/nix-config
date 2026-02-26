@@ -14,39 +14,14 @@
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager}:
-  let
-    username = "kat";
-    hostname = "zephyr";
-    configuration = {
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
-    };
-    specialArgs = {
-      inherit username hostname;
-    };
-    #extraSpecialArgs = {
-    #  inherit username hostname;
-    #};
+  let 
+    amethyst = import ./hosts/darwin/amethyst.nix {
+      inherit nixpkgs nix-darwin home-manager;
+      };
   in
   {
-    darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
-      inherit specialArgs;
-      modules = [ 
-        configuration 
-        ./modules/users.nix
-        ./modules/hosts.nix
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/homebrew.nix
-        home-manager.darwinModules.home-manager {
-          home-manager = {
-            extraSpecialArgs = specialArgs;
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.kat = import ./home;
-            };
-        }
-      ];
+    darwinConfigurations = {
+      inherit amethyst;
     };
   };
 }
