@@ -24,7 +24,7 @@
             extraSpecialArgs = specialArgs;
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.kat = import ../../.../../home;
+            users.kat = import ../../.../../home/darwin;
             };
         }
       ];

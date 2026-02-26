@@ -3,9 +3,9 @@
 {
   # import sub modules
   imports = [
-    ./git.nix
-    ./shell.nix
-    ./programs.nix
+    ../git.nix
+    ../shell.nix
+    ../darwin/programs.nix
   ];
 
   home = {
