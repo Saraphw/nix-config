@@ -13,13 +13,11 @@
       inherit specialArgs;
       modules = [ 
         configuration
-        ../../modules/core/hosts.nix
-        ../../modules/core/nix-core.nix
-
+        ../../modules/darwin/hosts.nix
+        ../../modules/darwin/nix-det.nix #using determinate nix to manage nix
         ../../modules/darwin/system.nix
         ../../modules/darwin/homebrew.nix
-      
-        ../../modules/users.nix
+        ../../modules/darwin/users.nix
 
         home-manager.darwinModules.home-manager {
           home-manager = {
