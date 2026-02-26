@@ -29,6 +29,7 @@ let
 
     casks = [
       "element"
+      "signal"
     ];
   };
 }

@@ -18,6 +18,9 @@
     amethyst = import ./hosts/darwin/amethyst.nix {
       inherit nixpkgs nix-darwin home-manager;
       };
+    garnet = import ./hosts/nixos/garnet.nix {
+      inherit nixpkgs;
+    };
   in
   {
     darwinConfigurations = {
