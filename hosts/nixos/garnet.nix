@@ -1,4 +1,4 @@
-{nixpkgs, } : 
+{nixpkgs, home-manager, ...} : 
 let 
   hostname = "garnet";
   username = "seraph";
@@ -8,11 +8,21 @@ let
   specialArgs = {
     inherit hostname username;
   };
+
 in
 nixpkgs.lib.nixosSystem {
   inherit specialArgs;
   modules = [
     ../../configuration.nix
     ../../modules/core/nix-core.nix
+
+    home-manager.nixosModules.home-manager.home-manager {
+      extraSpecialArgs = specialArgs;
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.seraph = import ../../home/server;
+      };
+    }
   ];
 }

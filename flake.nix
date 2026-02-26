@@ -19,7 +19,7 @@
       inherit nixpkgs nix-darwin home-manager;
       };
     garnet = import ./hosts/nixos/garnet.nix {
-      inherit nixpkgs;
+      inherit nixpkgs home-manager;
     };
   in
   {
