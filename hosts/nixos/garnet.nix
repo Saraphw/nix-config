@@ -1,4 +1,4 @@
-{nixpkgs, home-manager, ...} : 
+{nixpkgs, home-manager} : 
 let 
   hostname = "garnet";
   username = "seraph";
@@ -16,7 +16,7 @@ nixpkgs.lib.nixosSystem {
     ../../configuration.nix
     ../../modules/core/nix-core.nix
 
-    home-manager.nixosModules.home-manager.home-manager {
+    home-manager.nixosModules.home-manager {
       extraSpecialArgs = specialArgs;
       home-manager = {
         useGlobalPkgs = true;
