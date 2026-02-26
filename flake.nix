@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "Sarah W's Configuration for NixOS and Darwin";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -29,8 +29,6 @@
     #};
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
       inherit specialArgs;
       modules = [ 
