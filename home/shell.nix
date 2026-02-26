@@ -7,7 +7,7 @@
       echo "hi kat"
     '';
   };
-  
+
   home.shellAliases = {
       ll = "ls -lBA";
     };
