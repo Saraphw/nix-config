@@ -18,6 +18,7 @@ nixpkgs.lib.nixosSystem {
     ../../modules/core/hosts.nix
     
     ../../modules/nixos/nginx.nix
+    ../../modules/nixos/ssh.nix
 
     home-manager.nixosModules.home-manager {
       home-manager = {
