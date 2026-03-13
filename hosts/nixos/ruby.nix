@@ -1,6 +1,6 @@
 {nixpkgs, home-manager} : 
 let 
-  hostname = "garnet";
+  hostname = "ruby";
   username = "username";
   configuration = {
     nixpkgs.hostPlatform = "x86_64-linux";
@@ -17,9 +17,15 @@ nixpkgs.lib.nixosSystem {
     ../../modules/core/nix-core.nix
     ../../modules/core/hosts.nix
     
-    ../../modules/nixos/nginx.nix
     ../../modules/nixos/ssh.nix
 
+    {nixpkgs, ...} : {
+      services.caddy {
+        enable = true;
+        
+      }
+    }
+ 
     home-manager.nixosModules.home-manager {
       home-manager = {
         extraSpecialArgs = specialArgs;
