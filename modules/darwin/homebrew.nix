@@ -30,6 +30,8 @@ let
     casks = [
       "element"
       "signal"
+      "zoom"
+      ""
     ];
   };
 }
