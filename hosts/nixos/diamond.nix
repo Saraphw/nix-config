@@ -1,16 +1,9 @@
 {nixpkgs, home-manager} : 
 let 
-  hostname = "ruby";
-  username = "seraph";
+  hostname = "diamond";
+  username = "username";
   configuration = {
-    #nixpkgs.hostPlatform = "x86_64-linux";
-      services.caddy = {
-        enable = true;
-        virtualHosts."localhost:80".extraConfig = ''
-        reverse_proxy http://192.168.2.176:80
-        '';
-      };
-      networking.firewall.allowedTCPPorts = [ 80 443 ];
+    nixpkgs.hostPlatform = "x86_64-linux";
   };
   specialArgs = {
     inherit hostname username;
@@ -20,19 +13,16 @@ in
 nixpkgs.lib.nixosSystem {
   inherit specialArgs;
   modules = [
-    configuration
     ../../configuration.nix
     ../../modules/core/nix-core.nix
     ../../modules/core/hosts.nix
-    
-    ../../modules/nixos/ssh.nix
- 
+
     home-manager.nixosModules.home-manager {
       home-manager = {
         extraSpecialArgs = specialArgs;
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.seraph = import ../../home/server;
+        users.seraph = import ../../home/nixos;
       };
     }
   ];

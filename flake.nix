@@ -21,13 +21,16 @@
     garnet = import ./hosts/nixos/garnet.nix {
       inherit nixpkgs home-manager;
     };
+    ruby = import ./hosts/nixos/ruby.nix {
+      inherit nixpkgs home-manager;
+    };
   in
   {
     darwinConfigurations = {
       inherit amethyst;
     };
     nixosConfigurations = {
-      inherit garnet;
+      inherit garnet ruby;
     };
   };
 }

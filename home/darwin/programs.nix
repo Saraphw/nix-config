@@ -9,6 +9,7 @@
     vlc-bin
     python315
     bitwarden-desktop
+    hello
     libreoffice-bin
     #claude-code
 
