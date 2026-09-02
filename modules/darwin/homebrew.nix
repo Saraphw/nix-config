@@ -9,7 +9,7 @@ let
   };
   in
 {
-  environment.variables = homebrew_mirror_env;
+#  environment.variables = homebrew_mirror_env;
 
   homebrew = {
     enable = true;
@@ -30,8 +30,12 @@ let
     casks = [
       "element"
       "signal"
-      "zoom"
-      ""
+      "vscodium"
+      "wireshark-app"
+      "jupyterlab-app"
+      "super-productivity"
+      "obsidian"
+      "microsoft-teams"
     ];
   };
 }

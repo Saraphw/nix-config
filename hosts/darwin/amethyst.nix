@@ -1,4 +1,4 @@
-{nixpkgs, nix-darwin, home-manager}: 
+{nixpkgs, nix-darwin, home-manager, nix-rosetta-builder, ...}: 
   let 
   hostname = "amethyst";
   username = "kat";
@@ -15,7 +15,7 @@
         configuration
         ../../modules/core/hosts.nix
         
-        ../../modules/darwin/nix-det.nix #using determinate nix to manage nix
+        ../../modules/darwin/nix-darwin.nix
         ../../modules/darwin/system.nix
         ../../modules/darwin/homebrew.nix
         ../../modules/darwin/users.nix
@@ -27,6 +27,9 @@
             useUserPackages = true;
             users.kat = import ../../.../../home/darwin;
             };
+        }
+        nix-rosetta-builder.darwinModules.default {
+          nix-rosetta-builder.onDemand = true;
         }
       ];
 }
