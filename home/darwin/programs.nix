@@ -15,6 +15,18 @@
 
   ];
 
+  programs.vscode = {
+    profiles = {
+      default = {
+        userSettings = {
+
+        };
+      };
+    };
+    enable = true;
+    package = pkgs.vscodium;
+  };
+
   # For automatic nix develop of environments in shell
   programs.direnv = {
     enable = true;
