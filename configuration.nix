@@ -92,6 +92,15 @@
     ];
   };
 
+  #CUSTOM POWER SETTINGS
+  # TODO: Move to flake
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "no";
+    AllowHibernation = "no";
+    AllowHybridSleep = "no";
+    AllowSuspendThenHibernate = "no";
+  };
+
   # Install firefox.
   # programs.firefox.enable = true;
 
