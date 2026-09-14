@@ -18,7 +18,8 @@ nixpkgs.lib.nixosSystem {
     ../../modules/core/nix-core.nix
     ../../modules/core/hosts.nix
     ../../modules/nixos/ssh.nix
-
+    ../../modules/nixos/docker.nix
+    
     home-manager.nixosModules.home-manager {
       home-manager = {
         extraSpecialArgs = specialArgs;
