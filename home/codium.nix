@@ -26,6 +26,7 @@
         ms-toolsai.jupyter-keymap
         ms-python.python
         ms-python.debugpy
+        llvm-vs-code-extensions.vscode-clangd
       ]);
     };
   };
