@@ -3,6 +3,14 @@
 
 let
   pythonPackages = pkgs.python3Packages;
+  reqs = ''
+numpy
+matplotlib
+setuptools
+wheel
+notebook
+'';
+
 in
 pkgs.mkShell {
   buildInputs = [
@@ -15,7 +23,13 @@ pkgs.mkShell {
   venvDir = "./.venv";
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
-    python -m ipykernel install --user --name=.venv
+    pip install --upgrade pip
+    if [[ ! -f "requirements.txt" ]]; then
+      cat > requirements.txt << EOF
+      ${reqs}
+EOF
+    pip install -r requirements.txt
+    fi
   '';
   postShellHook = ''
     unset SOURCE_DATE_EPOCH
@@ -23,10 +37,10 @@ pkgs.mkShell {
 
     if [[ ! -f "requirements.txt" ]]; then
       cat > requirements.txt << EOF
-numpy
-pandas
-matplotlib
+      ${reqs}
 EOF
+    pip install -r requirements.txt
+    echo Requirements installed!
     fi
     
   '';
