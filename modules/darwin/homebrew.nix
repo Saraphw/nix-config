@@ -37,5 +37,16 @@ let
       "obsidian"
       "microsoft-teams"
     ];
+    vscode = [
+      "vscodevim.vim"
+      "jnoortheen.nix-ide"
+      "ms-toolsai.jupyter"
+      "ms-toolsai.jupyter-renderers"
+      "ms-toolsai.vscode-jupyter-cell-tags"
+      "ms-toolsai.jupyter-keymap"
+      "ms-python.python"
+      "ms-python.debugpy"
+      "llvm-vs-code-extensions.vscode-clangd"
+    ];
   };
 }

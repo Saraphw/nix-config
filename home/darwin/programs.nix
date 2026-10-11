@@ -23,8 +23,8 @@
         };
       };
     };
-    enable = true;
-    package = pkgs.vscodium;
+    enable = false;
+    #package = pkgs.vscodium;
   };
 
   # For automatic nix develop of environments in shell

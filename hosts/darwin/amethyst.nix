@@ -28,9 +28,9 @@
             users.kat = import ../../.../../home/darwin;
             };
         }
-        nix-rosetta-builder.darwinModules.default {
-          nix-rosetta-builder.onDemand = true;
-        }
+        #nix-rosetta-builder.darwinModules.default {
+        #  nix-rosetta-builder.onDemand = true;
+        #}
       ];
 }
 
