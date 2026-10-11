@@ -5,8 +5,7 @@
   username, 
   hostname, 
   ...
-} : 
-{
+} : {
   programs.vscodium = {
     enable = true;
     

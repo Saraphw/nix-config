@@ -1,16 +1,13 @@
-{ lib, ... }:
-let 
-  homebrew_mirror_env = {
-    HOMEBREW_API_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api";
-    HOMEBREW_BOTTLE_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles";
-    HOMEBREW_BREW_GIT_REMOTE = "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git";
-    HOMEBREW_CORE_GIT_REMOTE = "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git";
-    HOMEBREW_PIP_INDEX_URL = "https://pypi.tuna.tsinghua.edu.cn/simple";
-  };
-  in
-{
-#  environment.variables = homebrew_mirror_env;
+/**
+  Note! You have to install homebrew seperately
+  once you do, you never have to run a homebrew command
+  again though. Just darwin-rebuild. 
 
+  This config will destroy any packages installed seperately
+  by homebrew. To change this behaviour, set homebrew.onActivation.cleanup = "none". 
+ */
+{ lib, ... }:
+{
   homebrew = {
     enable = true;
     onActivation = {
@@ -20,7 +17,6 @@ let
     };
 
     masApps = {
-      #Xcode = 497799835;
     };
 
     brews = [
@@ -37,6 +33,8 @@ let
       "obsidian"
       "microsoft-teams"
     ];
+    # TODO: one master list of extensions which applies to both
+    # nixos managed vscodium and homebrew installed vscodium
     vscode = [
       "vscodevim.vim"
       "jnoortheen.nix-ide"
